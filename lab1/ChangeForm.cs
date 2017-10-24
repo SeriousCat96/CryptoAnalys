@@ -12,6 +12,30 @@ namespace lab1
 {
 	public partial class ChangeForm : Form
 	{
+		public string SymbolFrom
+		{
+			get
+			{
+				return textBox1.Text;
+			}
+			set
+			{
+				textBox1.Text = value;
+			}
+		}
+
+		public string SymbolTo
+		{
+			get
+			{
+				return textBox2.Text;
+			}
+			set
+			{
+				textBox2.Text = value;
+			}
+		}
+
 		public ChangeForm()
 		{
 			InitializeComponent();

@@ -97,7 +97,7 @@ namespace lab1
 
 			LetterDict = new Dictionary<string, string>()
 			{
-				{ orderedSymbols[0].Key, "O" },
+				{ orderedSymbols[0].Key, "О" },
 				{ orderedSymbols[1].Key, "Е" },
 				{ orderedSymbols[2].Key, "А" },
 				{ orderedSymbols[3].Key, "И" },
@@ -126,19 +126,22 @@ namespace lab1
 				{ orderedSymbols[26].Key, "Ю" },
 				{ orderedSymbols[27].Key, "Ш" },
 				{ orderedSymbols[28].Key, "Ц" },
-				{ orderedSymbols[29].Key, "Щ" },
-				//{ "", "Э" },
-				//{ "", "Ф" },
+				{ "---", "Щ" },
+				{ "-", "Э" },
+				{ "--", "Ф" },
 			};
+			PrintText();
 
+		}
+
+		public void PrintText()
+		{
 			ResultText = string.Copy(Text);
-
 			foreach(var s in LetterDict)
 			{
 				if (s.Key != "")
 					ResultText = ResultText.Replace(s.Key, s.Value);
 			}
-
 		}
 	}
 }

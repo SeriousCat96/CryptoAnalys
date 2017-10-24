@@ -28,32 +28,13 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.button1 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.textBox2 = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
+			this._btnOk = new System.Windows.Forms.Button();
+			this._btnCancel = new System.Windows.Forms.Button();
 			this.SuspendLayout();
-			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(12, 88);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
-			this.button1.TabIndex = 0;
-			this.button1.Text = "OK";
-			this.button1.UseVisualStyleBackColor = true;
-			// 
-			// button2
-			// 
-			this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.button2.Location = new System.Drawing.Point(93, 88);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(75, 23);
-			this.button2.TabIndex = 0;
-			this.button2.Text = "Cancel";
-			this.button2.UseVisualStyleBackColor = true;
 			// 
 			// textBox1
 			// 
@@ -89,19 +70,37 @@
 			this.label2.TabIndex = 2;
 			this.label2.Text = "Replace to:";
 			// 
+			// _btnOk
+			// 
+			this._btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this._btnOk.Location = new System.Drawing.Point(12, 88);
+			this._btnOk.Name = "_btnOk";
+			this._btnOk.Size = new System.Drawing.Size(75, 23);
+			this._btnOk.TabIndex = 3;
+			this._btnOk.Text = "OK";
+			this._btnOk.UseVisualStyleBackColor = true;
+			// 
+			// _btnCancel
+			// 
+			this._btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this._btnCancel.Location = new System.Drawing.Point(92, 88);
+			this._btnCancel.Name = "_btnCancel";
+			this._btnCancel.Size = new System.Drawing.Size(75, 23);
+			this._btnCancel.TabIndex = 4;
+			this._btnCancel.Text = "Cancel";
+			this._btnCancel.UseVisualStyleBackColor = true;
+			// 
 			// ChangeForm
 			// 
-			this.AcceptButton = this.button1;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.CancelButton = this.button2;
 			this.ClientSize = new System.Drawing.Size(179, 122);
+			this.Controls.Add(this._btnCancel);
+			this.Controls.Add(this._btnOk);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.textBox2);
 			this.Controls.Add(this.textBox1);
-			this.Controls.Add(this.button2);
-			this.Controls.Add(this.button1);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "ChangeForm";
@@ -112,12 +111,11 @@
 		}
 
 		#endregion
-
-		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.TextBox textBox2;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Button _btnOk;
+		private System.Windows.Forms.Button _btnCancel;
 	}
 }

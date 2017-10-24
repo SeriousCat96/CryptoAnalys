@@ -28,6 +28,8 @@ namespace lab1
 
 		void PrintLetters()
 		{
+			textBox4.Clear();
+
 			foreach(var s in _cypher.LetterDict)
 			{
 				textBox4.Text += $"{ s.Key } - { s.Value }{ Environment.NewLine }";
@@ -38,11 +40,18 @@ namespace lab1
 		{
 			using(var window = new ChangeForm())
 			{
-				switch(window.ShowDialog())
+				switch(window.ShowDialog(this))
 				{
 					case DialogResult.OK:
 						{
 							// TODO: Взять данные из формы и поменять буквы
+							var symbolFromKey = _cypher.LetterDict.Where(p => p.Value == window.SymbolFrom).Select(p => p.Key).ToList()[0];
+							var symbolToKey = _cypher.LetterDict.Where(p => p.Value == window.SymbolTo).Select(p => p.Key).ToList()[0];
+
+							var buf = _cypher.LetterDict[symbolFromKey];
+							_cypher.LetterDict[symbolFromKey] = _cypher.LetterDict[symbolToKey];
+							_cypher.LetterDict[symbolToKey] = buf;
+
 							break;
 						}
 					case DialogResult.Cancel:
@@ -53,6 +62,15 @@ namespace lab1
 			}
 
 			PrintLetters();
+
+			_cypher.PrintText();
+			textBox3.Clear();
+			textBox3.Text = _cypher.ResultText;
+		}
+
+		private void OnButtonReplaceSymbolClick(object sender, EventArgs e)
+		{
+			ReplaceSymbols();
 		}
 	}
 }
