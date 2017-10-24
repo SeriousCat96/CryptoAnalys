@@ -27,7 +27,7 @@ namespace lab1
 		{
 			Text = File.ReadAllText(filename);
 			//Text = text.Split(new char[] { ' ', '\r', '\n' });
-			var symbols = Text.Split(new char[] { ' ', '\r', '\n', '.', ',' });
+			var symbols = Text.Split(new char[] { ' ', '\r', '\n', '.', ',', '"', '-' });
 
 			Symbols = symbols;
 		}
