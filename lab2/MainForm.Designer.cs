@@ -96,6 +96,7 @@
 			this.MinimumSize = new System.Drawing.Size(600, 200);
 			this.Name = "MainForm";
 			this.Text = "Lab 2";
+			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
