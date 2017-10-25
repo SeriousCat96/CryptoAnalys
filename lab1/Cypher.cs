@@ -126,7 +126,7 @@ namespace lab1
 				{ orderedSymbols[26].Key, "Ю" },
 				{ orderedSymbols[27].Key, "Ш" },
 				{ orderedSymbols[28].Key, "Ц" },
-				{ "---", "Щ" },
+				{ orderedSymbols[29].Key, "Щ" },
 				{ "-", "Э" },
 				{ "--", "Ф" },
 			};
