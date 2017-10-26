@@ -50,6 +50,9 @@ namespace lab2
 			.GetString(ConvertToByte(arr));
 
 			MessageBox.Show(this, str);
-		}
+
+			var res = BitSplitterJoiner.GetAllBits("A");
+            var res2 = BitSplitterJoiner.GetAllBits("B");
+        }
 	}
 }
