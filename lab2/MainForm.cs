@@ -13,6 +13,9 @@ namespace lab2
 {
 	public partial class MainForm : Form
 	{
+		Feistel feistel;
+		int rounds = 12;
+
 		public MainForm()
 		{
 			InitializeComponent();
@@ -25,45 +28,41 @@ namespace lab2
 			return bytes;
 		}
 
-		private void MainForm_Load(object sender, EventArgs e)
+		private void OnButtonEncryptClick(object sender, EventArgs e)
 		{
-			//byte[] ar_a = BitConverter.GetBytes('A');
-			//byte[] ar_a = {1,0,0,0,0,0,1};
-			//var a = BitConverter.ToBoolean(ar_a, 0);
+			var key = Encoding
+				.ASCII
+				.GetBytes(tbKey.Text);
 
-			//var bytes = Encoding
-			//.ASCII
-			//.GetBytes("ABCDEFG");
+			var inputText = rtbInput.Text;
 
-			//var arr = new BitArray(bytes);
-			//var sb = new StringBuilder();
+			feistel = new Feistel(inputText, key, rounds, blockSize: 64);
+			if(key.Length != feistel.BlockSize / 16)
+			{
+				MessageBox.Show(this, "Размер ключа не соответствует размеру блока!");
+				return;
+			}
 
-			//foreach (var a in arr)
-			//{
-			//	sb.Append((bool)a ? 1 : 0);
-			//}
+			var encryptedText = feistel.Encrypt();
 
-			//MessageBox.Show(this, sb.ToString());
+			rtbOutput.Text = encryptedText;
+		}
 
-			//var str = Encoding
-			//.ASCII
-			//.GetString(ConvertToByte(arr));
+		private void OnButtonDecryptClick(object sender, EventArgs e)
+		{
+			var key = Encoding
+				.ASCII
+				.GetBytes(tbKey.Text);
 
-			//MessageBox.Show(this, str);
+			if(key.Length != feistel.BlockSize / 16)
+			{
+				MessageBox.Show(this, "Размер ключа не соответствует размеру блока!");
+				return;
+			}
 
-			var res = BitSplitterJoiner.GetBlocks("it was pain!", 64);
+			var decryptedText = feistel.Decrypt();
 
-
-			//s:RFRFvo
-
-			var tmp_key = Encoding.ASCII.GetBytes("s:RFk");
-
-			Feistel feistel = new Feistel(0, new byte[] {9,4}, "hhhhhhh");
-
-			Feistel f = new Feistel(12, new byte[] { 129, 55, 78, 54 }, "something to encrypt!!!");
-
-			var rrrrr = f.Encrypt();
-			var rrww = f.Decrypt(rrrrr);
+			rtbOutput.Text = decryptedText;
 		}
 	}
 }

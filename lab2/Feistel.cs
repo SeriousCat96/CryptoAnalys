@@ -11,12 +11,12 @@ namespace lab2
 	{
 		private List<byte[]> AllEncodingBlocks;
 
+		public readonly int BlockSize;
+
 		public int IterNum { get; set; }
 		public byte[] Key { get; set; }
-		public long KeyInt { get; set; }
 		public string OriginalText { get; set; }
-
-		public string DecryptedText { get; set; }
+		public string EncryptedText { get; set; }
 
 		/// <summary>
 		/// Создает объект <see cref="Feistel"/>.
@@ -24,13 +24,13 @@ namespace lab2
 		/// <param name="iterNum">Количество итераций</param>
 		/// <param name="key">Ключ шифрования</param>
 		/// <param name="inputText">Исходный текст</param>
-		public Feistel(int iterNum, byte[] key, string inputText)
+		public Feistel(string inputText, byte[] key, int iterNum, int blockSize)
 		{
 			IterNum = iterNum;
-			this.Key = key;
-			this.OriginalText = inputText;
+			Key = key;
+			OriginalText = inputText;
+			BlockSize = blockSize;
 
-			BuildKey();
 			Init();
 
 		}
@@ -68,21 +68,17 @@ namespace lab2
 				string result = l + r;
 
 				sb.Append(result);
-
-				//temp = *right ^ f(*left, key[i]);
-				//*right = *left;
-				//*left = temp;
 			}
 
 			int v = sb.Length;
-			DecryptedText = sb.ToString();
-			return DecryptedText;
+			EncryptedText = sb.ToString();
+			return EncryptedText;
 
 		}
 
-		public string Decrypt(string str)
+		public string Decrypt()
 		{
-			AllEncodingBlocks = BitSplitterJoiner.GetBlocks(str);
+			AllEncodingBlocks = BitSplitterJoiner.GetBlocks(EncryptedText);
 
 			var sb = new StringBuilder();
 
@@ -110,27 +106,9 @@ namespace lab2
 				string result = l + r;
 
 				sb.Append(result);
-
-				//temp = *right ^ f(*left, key[i]);
-				//*right = *left;
-				//*left = temp;
 			}
-
-			int v = sb.Length;
-
 
 			return sb.ToString();
-		}
-
-		private void BuildKey()
-		{
-			long buildedKey = 0;
-			for(int i = 0; i < Key.Length; i++)
-			{
-				buildedKey += Key[i] << (8 * i);
-			}
-
-			KeyInt = buildedKey;
 		}
 
 		private byte[] Func(byte [] a)
@@ -141,8 +119,7 @@ namespace lab2
 
 			for (int i=0; i<a.Length; i++)
 			{
-				//result[i] = (byte)(((a[i] + Key[i] >> 1) % 128));
-				result[i] = (byte)(((a[i] % Key[i] )));
+				result[i] = (byte)(((a[i] + Key[i] >> 1) % 128));
 			}
 			return result;
 

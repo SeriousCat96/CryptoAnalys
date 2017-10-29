@@ -63,6 +63,7 @@
 			this.btnEncrypt.TabIndex = 3;
 			this.btnEncrypt.Text = "Encrypt >>";
 			this.btnEncrypt.UseVisualStyleBackColor = true;
+			this.btnEncrypt.Click += new System.EventHandler(this.OnButtonEncryptClick);
 			// 
 			// btnDecrypt
 			// 
@@ -72,6 +73,7 @@
 			this.btnDecrypt.TabIndex = 4;
 			this.btnDecrypt.Text = "<< Decrypt";
 			this.btnDecrypt.UseVisualStyleBackColor = true;
+			this.btnDecrypt.Click += new System.EventHandler(this.OnButtonDecryptClick);
 			// 
 			// tbKey
 			// 
@@ -96,7 +98,6 @@
 			this.MinimumSize = new System.Drawing.Size(600, 200);
 			this.Name = "MainForm";
 			this.Text = "Lab 2";
-			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

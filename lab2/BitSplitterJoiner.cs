@@ -23,14 +23,7 @@ namespace lab2
 			var bytes = new byte[blockSizeInBytes * blocksCount];
 
 			Array.Copy(bytesTmp, bytes, bytesTmp.Length);
-			//A - 65
-			//76543210
-			//01000001
-
-			//B - 66
-			//76543210
-			//01000010
-
+			
 			//возвощаемое содержимое
 			List<byte[]> finalList = new List<byte[]>();
 
