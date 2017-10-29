@@ -37,6 +37,8 @@
 			// 
 			// rtbInput
 			// 
+			this.rtbInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
 			this.rtbInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.rtbInput.Location = new System.Drawing.Point(12, 12);
 			this.rtbInput.Name = "rtbInput";
@@ -47,6 +49,8 @@
 			// 
 			// rtbOutput
 			// 
+			this.rtbOutput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.rtbOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.rtbOutput.Location = new System.Drawing.Point(477, 12);
 			this.rtbOutput.Name = "rtbOutput";
@@ -57,6 +61,8 @@
 			// 
 			// btnEncrypt
 			// 
+			this.btnEncrypt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.btnEncrypt.Location = new System.Drawing.Point(309, 176);
 			this.btnEncrypt.Name = "btnEncrypt";
 			this.btnEncrypt.Size = new System.Drawing.Size(162, 23);
@@ -67,6 +73,8 @@
 			// 
 			// btnDecrypt
 			// 
+			this.btnDecrypt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.btnDecrypt.Location = new System.Drawing.Point(309, 205);
 			this.btnDecrypt.Name = "btnDecrypt";
 			this.btnDecrypt.Size = new System.Drawing.Size(162, 23);
@@ -77,6 +85,8 @@
 			// 
 			// tbKey
 			// 
+			this.tbKey.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.tbKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.tbKey.Location = new System.Drawing.Point(310, 12);
 			this.tbKey.MaxLength = 128;

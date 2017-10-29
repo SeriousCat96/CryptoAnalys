@@ -24,10 +24,9 @@ namespace lab2
 		/// <param name="iterNum">Количество итераций</param>
 		/// <param name="key">Ключ шифрования</param>
 		/// <param name="inputText">Исходный текст</param>
-		public Feistel(string inputText, byte[] key, int iterNum, int blockSize)
+		public Feistel(string inputText, int iterNum, int blockSize)
 		{
 			IterNum = iterNum;
-			Key = key;
 			OriginalText = inputText;
 			BlockSize = blockSize;
 
@@ -40,8 +39,9 @@ namespace lab2
 			AllEncodingBlocks = BitSplitterJoiner.GetBlocks(OriginalText, 64);
 		}
 
-		public string Encrypt()
+		public string Encrypt(byte[] key)
 		{
+			Key = key;
 			var sb = new StringBuilder();
 
 			foreach(var block in AllEncodingBlocks)
@@ -76,8 +76,9 @@ namespace lab2
 
 		}
 
-		public string Decrypt()
+		public string Decrypt(byte[] key)
 		{
+			Key = key;
 			AllEncodingBlocks = BitSplitterJoiner.GetBlocks(EncryptedText);
 
 			var sb = new StringBuilder();

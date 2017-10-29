@@ -36,14 +36,14 @@ namespace lab2
 
 			var inputText = rtbInput.Text;
 
-			feistel = new Feistel(inputText, key, rounds, blockSize: 64);
+			feistel = new Feistel(inputText, rounds, blockSize: 64);
 			if(key.Length != feistel.BlockSize / 16)
 			{
 				MessageBox.Show(this, "Размер ключа не соответствует размеру блока!");
 				return;
 			}
 
-			var encryptedText = feistel.Encrypt();
+			var encryptedText = feistel.Encrypt(key);
 
 			rtbOutput.Text = encryptedText;
 		}
@@ -60,7 +60,7 @@ namespace lab2
 				return;
 			}
 
-			var decryptedText = feistel.Decrypt();
+			var decryptedText = feistel.Decrypt(key);
 
 			rtbOutput.Text = decryptedText;
 		}
