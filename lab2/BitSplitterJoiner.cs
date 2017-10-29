@@ -9,17 +9,20 @@ namespace lab2
 {
 	public static class BitSplitterJoiner
 	{
-		public static List<byte[]> GetAllBits(string text, int blockSize = 64)
+		//возвращает писок из массивов, содержащих биты, по 64 в каждом.
+		public static List<byte[]> GetBlocks(string text, int blockSize = 64)
 		{
-			var bytes = Encoding
+			int blockSizeInBytes = blockSize / 8;
+
+			var bytesTmp = Encoding
 				.ASCII
 				.GetBytes(text);
 
-			var bitArray = new BitArray(bytes);
+			int blocksCount = (int)Math.Ceiling(bytesTmp.Length / (double)blockSizeInBytes);
 
-			//сколько блоков получается
-			int blocksCount = (int)Math.Ceiling(bitArray.Length / (double)blockSize);
+			var bytes = new byte[blockSizeInBytes * blocksCount];
 
+			Array.Copy(bytesTmp, bytes, bytesTmp.Length);
 			//A - 65
 			//76543210
 			//01000001
@@ -28,50 +31,15 @@ namespace lab2
 			//76543210
 			//01000010
 
-			//содержит все биты и хвост дополнен 000000
-			var finalArray = new byte[blocksCount * blockSize];
-
-			bitArray.CopyTo(finalArray, 0);
-
-			var l = bitArray.Length;
-
-
+			//возвощаемое содержимое
 			List<byte[]> finalList = new List<byte[]>();
 
-			for (int i = 0; i<blocksCount; i++)
+			for (int i = 0; i < blocksCount; i++)
 			{
-				byte[] tmp = new byte[blockSize];
-
-				for (int j = 0; j < blockSize; j++)
-				{
-					;
-				}
-
+				var tmp = new byte[blockSizeInBytes];
+				Array.ConstrainedCopy(bytes, i * blockSizeInBytes, tmp, 0, blockSizeInBytes);
 				finalList.Add(tmp);
-			}
-			///TODO
-			///ПРОВЕРИТЬ РАБОТУ, ДОПИСАТЬ!
-
-			//Array.ConstrainedCopy(bitArray, 0, finalArray, 0, bitArray.Length);
-
-
-
-
-			//for(int i = 0; i < blocksCount; i++)
-			//{
-			//	var sb = new StringBuilder();
-
-			//	for(int j = 0; j < blockSize; j++)
-			//	{
-			//		sb.Append(bitArray[i * blockSize + j] ? 1 : 0);
-			//	}
-
-
-			//}
-
-			
-
-			finalList.Add(finalArray);
+			}			
 
 			return finalList;
 		}
