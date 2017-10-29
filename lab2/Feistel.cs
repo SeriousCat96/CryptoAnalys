@@ -98,10 +98,11 @@ namespace lab2
 
 				for(int i = 0; i < IterNum; i++)
 				{
-					Tmp_Block = XoR(L_Block, Func(R_Block));
+					L_Block = XoR(L_Block, Func(R_Block));
+					Tmp_Block = R_Block;
 
-					L_Block = Tmp_Block;
 					R_Block = L_Block;
+					L_Block = Tmp_Block;
 				}
 
 				var l = Encoding.ASCII.GetString(L_Block);
