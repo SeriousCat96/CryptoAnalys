@@ -51,7 +51,7 @@ namespace lab3
 			for(int i = 0; i < h.Length; i++)
 			{
 				t[0] = g;
-				new_g = Func_G(g, h[i]);
+				new_g = Func_G(h[i], g);
 				new_t[0] = new_g;
 				for(int j = 1; j < t.Length; j++)
 				{
