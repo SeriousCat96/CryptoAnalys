@@ -68,13 +68,13 @@ namespace lab3
 
 		private byte Func_G(byte left, byte up)
 		{
-			return (byte)(((up + 23) << 3) + left);
+			return (byte)(((up + 23) >> 3) + left);
 		}
 
 
 		private byte Func_T_Down(byte left, byte up)
 		{
-			var b = up << 3;
+			var b = up >> 3;
 			var a = left + b;
 			return (byte)(a);
 		}
