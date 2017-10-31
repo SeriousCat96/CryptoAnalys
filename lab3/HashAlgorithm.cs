@@ -8,7 +8,7 @@ namespace lab3
 {
 	public class HashAlgorithm
 	{
-		public int Hash(string input)
+		public byte[] Hash(string input)
 		{
 			// 1) Прибавить длину строки
 
@@ -44,7 +44,6 @@ namespace lab3
 
 			Array.ConstrainedCopy(s, 0, t, 1, s.Length);
 
-			byte[] new_t = new byte[129];
 			byte g = 1;
 			byte new_g = 0;
 
@@ -52,6 +51,8 @@ namespace lab3
 			{
 				t[0] = g;
 				new_g = Func_G(h[i], g);
+
+				byte[] new_t = new byte[129];
 				new_t[0] = new_g;
 				for(int j = 1; j < t.Length; j++)
 				{
@@ -62,9 +63,7 @@ namespace lab3
 				g = new_g;
 				t = new_t;
 			}
-
-			var sum = new List<byte>(h).Select(e => (int)e).Sum();
-			return sum;
+			return h;
 		}
 
 		private byte Func_G(byte left, byte up)
