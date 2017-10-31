@@ -31,7 +31,7 @@ namespace lab2
 		private void OnButtonEncryptClick(object sender, EventArgs e)
 		{
 			var key = Encoding
-				.ASCII
+				.Default
 				.GetBytes(tbKey.Text);
 
 			var inputText = rtbInput.Text;
@@ -51,7 +51,7 @@ namespace lab2
 		private void OnButtonDecryptClick(object sender, EventArgs e)
 		{
 			var key = Encoding
-				.ASCII
+				.Default
 				.GetBytes(tbKey.Text);
 
 			if(key.Length != feistel.BlockSize / 16)

@@ -15,7 +15,7 @@ namespace lab2
 			int blockSizeInBytes = blockSize / 8;
 
 			var bytesTmp = Encoding
-				.ASCII
+				.Default
 				.GetBytes(text);
 
 			int blocksCount = (int)Math.Ceiling(bytesTmp.Length / (double)blockSizeInBytes);

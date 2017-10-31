@@ -62,8 +62,8 @@ namespace lab2
 					L_Block = Tmp_Block;
 				}
 
-				var l = Encoding.ASCII.GetString(L_Block);
-				var r = Encoding.ASCII.GetString(R_Block);
+				var l = Encoding.Default.GetString(L_Block);
+				var r = Encoding.Default.GetString(R_Block);
 
 				string result = l + r;
 
@@ -101,8 +101,8 @@ namespace lab2
 					R_Block = Tmp_Block;
 				}
 
-				var l = Encoding.ASCII.GetString(L_Block);
-				var r = Encoding.ASCII.GetString(R_Block);
+				var l = Encoding.Default.GetString(L_Block);
+				var r = Encoding.Default.GetString(R_Block);
 
 				string result = l + r;
 
