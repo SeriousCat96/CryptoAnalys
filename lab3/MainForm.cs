@@ -19,6 +19,9 @@ namespace lab3
 			InitializeComponent();
 
 			hashAlg = new HashAlgorithm();
+
+			//byte i = 127;
+			//MessageBox.Show(((byte)(i << 3)).ToString());
 		}
 
 		private void OnButtonHashClick(object sender, EventArgs e)

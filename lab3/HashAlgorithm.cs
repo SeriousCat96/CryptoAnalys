@@ -40,7 +40,7 @@ namespace lab3
 
 			byte[] h = new byte[24];
 			byte[] s = Encoding.Default.GetBytes(out2);
-			byte[] t = new byte[129];
+			byte[] t = new byte[s.Length + 1];
 
 			Array.ConstrainedCopy(s, 0, t, 1, s.Length);
 
@@ -52,17 +52,18 @@ namespace lab3
 				t[0] = g;
 				new_g = Func_G(h[i], g);
 
-				byte[] new_t = new byte[129];
+				byte[] new_t = new byte[t.Length];
 				new_t[0] = new_g;
 				for(int j = 1; j < t.Length; j++)
 				{
 					new_t[j] = Func_T_All(new_t[j - 1], t[j - 1], Func_T_Down(t[j - 1], t[j]));
 				}
 
-				h[i] = new_t[128];
+				h[i] = new_t[s.Length];
 				g = new_g;
 				t = new_t;
 			}
+			
 			return h;
 		}
 
